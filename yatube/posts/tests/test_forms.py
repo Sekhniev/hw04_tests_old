@@ -57,7 +57,7 @@ class PostCreateFormTests(TestCase):
             'group': self.group.id,
         }
         response = self.authorized_client.post(
-            reverse('posts:post_edit', args=(self.post.id,)),
+            reverse('posts:post_edit', kwargs={'post_id': self.post.id}),
             data=form_data,
             follow=True
         )
@@ -68,7 +68,7 @@ class PostCreateFormTests(TestCase):
         self.assertEqual(first_object.author, self.user_author)
         self.assertEqual(first_object.group.id, self.group)
         self.assertRedirects(response, reverse(
-            'posts:post_detail', args=(self.post.id,)))
+            'posts:post_detail', kwargs={'post_id': self.post.id}))
         self.assertTrue(
             Post.objects.filter(
                 text=form_data['text'],
