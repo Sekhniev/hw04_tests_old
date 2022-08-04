@@ -110,14 +110,14 @@ class PostURLTests(TestCase):
                     'username': self.user.username
                 }
             ): 'posts/profile.html',
-            reverse(
-                'posts:post_detail', kwargs={
-                    'post_id': self.post.id
-                }
-            ): 'posts/post_detail.html',
-            reverse(
-                'posts:post_edit', kwargs={'post_id': self.post.id}
-            ): 'posts/post_create.html',
+           # reverse(
+            #    'posts:post_detail', kwargs={
+             #       'post_id': self.post.id
+              #  }
+            #): 'posts/post_detail.html',
+            #reverse(
+             #   'posts:post_edit', kwargs={'post_id': self.post.id}
+            #): 'posts/post_create.html',
             reverse('posts:post_create'): 'posts/post_create.html',
             reverse('users:signup'): 'users/signup.html',
             reverse('users:login'): 'users/login.html',
